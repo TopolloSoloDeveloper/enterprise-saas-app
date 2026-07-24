@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise SaaS Platform | Next-Gen Asset Management</title>
+    <!-- Stylesheet Phase 1 Import -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ==========================================================================
+     1. PUBLIC LANDING PAGE (STYLED AFTER SAAS-LP.ANIMAAPP.IO)
+     ========================================================================== -->
+<div id="public-landing" class="landing-view">
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar">
+        <div class="brand-logo">⚡ WALLET SAAS</div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#demo" onclick="launchAppWorkspace()">Live SaaS Demo</a></li>
+        </ul>
+        <div>
+            <button class="btn" onclick="launchAppWorkspace()">Sign In</button>
+            <button class="btn btn-primary" onclick="launchAppWorkspace()">Get Started &rarr;</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="badge">✨ Powered by Anima Design System v4.0</div>
+        <h1 class="hero-title">Manage Enterprise Assets <span>Without the Friction</span></h1>
+        <p class="hero-subtitle">
+            The all-in-one digital asset repository with deep nested workspaces, granular RBAC security, and automated metadata version control.
+        </p>
+        <div class="hero-ctas">
+            <button class="btn btn-primary" onclick="launchAppWorkspace()">Launch Interactive Platform &rarr;</button>
+            <a href="#features" class="btn">Explore Architecture</a>
+        </div>
+
+        <!-- Interactive Web App Preview -->
+        <div id="demo" class="app-preview-frame" onclick="launchAppWorkspace()" style="cursor: pointer;">
+            <div style="background: #0f172a; padding: 12px; border-bottom: var(--border-glass); text-align: left; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">
+                ● ● ● https://app.enterprise-saas.com/dashboard [CLICK TO ENTER APP WORKSPACE]
+            </div>
+            <div style="padding: 40px; text-align: center;">
+                <h2 style="margin-bottom: 10px;">⚡ Interactive Platform Ready</h2>
+                <p style="color: var(--text-muted);">Click anywhere on this preview banner to jump directly into the 4-Level SaaS Application.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Features -->
+    <section id="features" class="features-section">
+        <h2 class="section-title">Built for Complex Enterprise Hierarchies</h2>
+        <div class="bento-grid">
+            <div class="bento-card">
+                <span class="bento-icon">📂</span>
+                <h3>Deep 4-Level Nesting</h3>
+                <p style="color: var(--text-muted); margin-top: 8px;">Organize assets across Organizations, Workspaces, Brand Categories, and Item-level metadata views seamlessly.</p>
+            </div>
+            <div class="bento-card">
+                <span class="bento-icon">🔒</span>
+                <h3>Granular RBAC Security</h3>
+                <p style="color: var(--text-muted); margin-top: 8px;">Role-based access controls, SAML Single Sign-On (SSO), and real-time security audit streaming.</p>
+            </div>
+            <div class="bento-card">
+                <span class="bento-icon">⚡</span>
+                <h3>Faceted Filter Engine</h3>
+                <p style="color: var(--text-muted); margin-top: 8px;">Instant search indexing across formats, tagging dimensions, approval states, and custom metadata fields.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" style="padding: 80px 20px;">
+        <h2 class="section-title">Flexible Plans for Growing Teams</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <div class="price-num">$29<span style="font-size: 14px; color: var(--text-muted);">/mo</span></div>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">For small creative teams.</p>
+                <button class="btn" style="width: 100%; justify-content: center;" onclick="launchAppWorkspace()">Start Free Trial</button>
+            </div>
+            <div class="price-card featured">
+                <div class="badge">Most Popular</div>
+                <h3>Pro Enterprise</h3>
+                <div class="price-num">$99<span style="font-size: 14px; color: var(--text-muted);">/mo</span></div>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">For multi-tenant organizational units.</p>
+                <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="launchAppWorkspace()">Launch Platform</button>
+            </div>
+            <div class="price-card">
+                <h3>Custom</h3>
+                <div class="price-num">Custom</div>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Dedicated cloud instance & SSO.</p>
+                <button class="btn" style="width: 100%; justify-content: center;" onclick="launchAppWorkspace()">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- ==========================================================================
+     2. FULLY FUNCTIONAL 4-LEVEL ENTERPRISE SAAS WORKSPACE
+     ========================================================================== -->
+<div id="app-shell" class="app-view">
+    <div class="app-container">
+
+        <!-- App Header -->
+        <header class="app-header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button class="btn" onclick="toggleMobileSidebar()" style="padding: 4px 8px;">☰</button>
+                <div class="brand-logo">⚡ WALLET OS</div>
+            </div>
+            <input type="text" class="search-input" placeholder="Search across 4-level directory..." />
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button class="btn" onclick="exitToLandingPage()">Exit App</button>
+                <button class="btn btn-primary" onclick="switchAppView('view-l4', null)">Inspect Asset (L4)</button>
+            </div>
+        </header>
+
+        <!-- Back Backdrop Overlay for Mobile -->
+        <div id="sidebar-backdrop" class="sidebar-overlay" onclick="closeMobileSidebar()"></div>
+
+        <!-- App Sidebar (Deep Navigation Tree) -->
+        <aside id="app-sidebar" class="app-sidebar">
+            <div class="nav-tree-header">Workspace Navigation</div>
+            <ul class="nav-tree">
+                <li>
+                    <a class="nav-link active" onclick="switchAppView('view-l1', this)">[L1] Global Dashboard</a>
+                </li>
+                <li>
+                    <a class="nav-link" onclick="toggleNavSubtree('sub-content-tree')">[L1] Content Repository &#9660;</a>
+                    <ul class="nav-sub open" id="sub-content-tree">
+                        <li>
+                            <a class="nav-link" onclick="switchAppView('view-l2', this)">[L2] Digital Asset Management</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" onclick="toggleNavSubtree('sub-brand-tree')">[L2] Asset Libraries &#9660;</a>
+                            <ul class="nav-sub open" id="sub-brand-tree">
+                                <li>
+                                    <a class="nav-link" onclick="switchAppView('view-l3', this)">[L3] Brand & Marketing Hub</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" onclick="switchAppView('view-l4', this)">[L4] Asset Inspector / Editor</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Workspace Canvas -->
+        <main class="app-main">
+
+            <div class="breadcrumbs">
+                Workspace / <span id="breadcrumb-path">Global Dashboard (Level 1)</span>
+            </div>
+
+            <!-- VIEW LEVEL 1: DASHBOARD -->
+            <section id="view-l1" class="view-panel active">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h1>Workspace Executive Summary</h1>
+                    <button class="btn btn-primary" onclick="switchAppView('view-l2', null)">Go to Asset Repository &rarr;</button>
+                </div>
+
+                <div class="metrics-row">
+                    <div class="metric-box">
+                        <div style="color: var(--text-muted);">Total Assets</div>
+                        <div class="metric-val">14,290</div>
+                    </div>
+                    <div class="metric-box">
+                        <div style="color: var(--text-muted);">Active Storage</div>
+                        <div class="metric-val">1.2 TB</div>
+                    </div>
+                    <div class="metric-box">
+                        <div style="color: var(--text-muted);">Pending Approvals</div>
+                        <div class="metric-val">08</div>
+                    </div>
+                    <div class="metric-box">
+                        <div style="color: var(--text-muted);">Bandwidth (24h)</div>
+                        <div class="metric-val">420 GB</div>
+                    </div>
+                </div>
+
+                <h3>Recent Activity Stream</h3>
+                <br>
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>USER</th>
+                                <th>EVENT ACTION</th>
+                                <th>RESOURCE PATH</th>
+                                <th>TIMESTAMP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>alex.v@company.com</td>
+                                <td>Updated Version (v2.1)</td>
+                                <td>/Brand/hero_banner_q3.png</td>
+                                <td>Just now</td>
+                            </tr>
+                            <tr>
+                                <td>sarah.m@company.com</td>
+                                <td>Approved Metadata Tags</td>
+                                <td>/Documents/brand_guide.pdf</td>
+                                <td>12 mins ago</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- VIEW LEVEL 2: REPOSITORY HUB -->
+            <section id="view-l2" class="view-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h1>Digital Asset Management Repository</h1>
+                    <button class="btn btn-primary" onclick="switchAppView('view-l3', null)">Enter Brand Hub &rarr;</button>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="asset-item-card">
+                        <div class="media-placeholder">[FOLDER ICON]</div>
+                        <h3>Brand & Marketing Hub</h3>
+                        <p style="color: var(--text-muted); margin-top: 4px;">1,240 Assets</p>
+                        <br>
+                        <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="switchAppView('view-l3', null)">Browse Level 3</button>
+                    </div>
+                    <div class="asset-item-card">
+                        <div class="media-placeholder">[FOLDER ICON]</div>
+                        <h3>Raw Media Production</h3>
+                        <p style="color: var(--text-muted); margin-top: 4px;">8,420 Assets</p>
+                        <br>
+                        <button class="btn" style="width: 100%; justify-content: center;">Browse Level 3</button>
+                    </div>
+                    <div class="asset-item-card">
+                        <div class="media-placeholder">[FOLDER ICON]</div>
+                        <h3>Documentation Vault</h3>
+                        <p style="color: var(--text-muted); margin-top: 4px;">340 Assets</p>
+                        <br>
+                        <button class="btn" style="width: 100%; justify-content: center;">Browse Level 3</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW LEVEL 3: BRAND HUB & FACETED FILTERS -->
+            <section id="view-l3" class="view-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h1>Brand & Marketing Hub</h1>
+                    <button class="btn btn-primary" onclick="switchAppView('view-l4', null)">Inspect Asset Detail &rarr;</button>
+                </div>
+
+                <div class="split-layout">
+                    <div class="filter-sidebar">
+                        <h4>[FACETED FILTERS]</h4>
+                        <br>
+                        <label style="font-size: 11px; color: var(--text-muted);">FILE TYPE</label>
+                        <div style="margin: 8px 0;">
+                            <input type="checkbox" checked /> Images (.png)<br>
+                            <input type="checkbox" /> Vectors (.svg)<br>
+                            <input type="checkbox" /> Documents (.pdf)
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" style="width: 100%; justify-content: center;">Apply Filters</button>
+                    </div>
+
+                    <div class="cards-grid">
+                        <div class="asset-item-card" onclick="switchAppView('view-l4', null)" style="cursor: pointer;">
+                            <div class="media-placeholder">[MEDIA_102]</div>
+                            <strong>hero_banner_q3.png</strong>
+                            <p style="color: var(--text-muted);">Status: Approved</p>
+                            <br>
+                            <span style="color: var(--primary); text-decoration: underline;">[Open Inspector]</span>
+                        </div>
+                        <div class="asset-item-card">
+                            <div class="media-placeholder">[MEDIA_103]</div>
+                            <strong>deck_template.pdf</strong>
+                            <p style="color: var(--text-muted);">Status: Review</p>
+                        </div>
+                        <div class="asset-item-card">
+                            <div class="media-placeholder">[MEDIA_104]</div>
+                            <strong>logo_pack_v2.svg</strong>
+                            <p style="color: var(--text-muted);">Status: Approved</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW LEVEL 4: ITEM DETAIL INSPECTOR -->
+            <section id="view-l4" class="view-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h1>Asset Inspector: hero_banner_q3.png</h1>
+                    <button class="btn btn-primary">Save Metadata</button>
+                </div>
+
+                <div class="inspector-layout">
+                    <div class="canvas-preview">
+                        [CANVAS HIGH-RES PREVIEW PLAYER: hero_banner_q3.png]
+                    </div>
+
+                    <div class="meta-panel">
+                        <div class="tab-header">
+                            <button class="tab-link active" onclick="switchInspectorTab(this, 'pane-meta')">Metadata</button>
+                            <button class="tab-link" onclick="switchInspectorTab(this, 'pane-versions')">Versions</button>
+                        </div>
+
+                        <div id="pane-meta" class="tab-body tab-content-pane">
+                            <div style="margin-bottom: 12px;">
+                                <label style="display: block; margin-bottom: 4px; color: var(--text-muted);">Asset Title</label>
+                                <input type="text" class="search-input" style="width: 100%;" value="hero_banner_q3.png" />
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <label style="display: block; margin-bottom: 4px; color: var(--text-muted);">Tags</label>
+                                <input type="text" class="search-input" style="width: 100%;" value="#marketing, #q3, #hero" />
+                            </div>
+                        </div>
+
+                        <div id="pane-versions" class="tab-body tab-content-pane" style="display: none;">
+                            <ul style="list-style: none;">
+                                <li style="margin-bottom: 8px;"><strong>v2.1 (Current)</strong> - Edited by Alex</li>
+                                <li><strong>v1.0</strong> - Initial Upload</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- App Footer -->
+        <footer class="app-footer">
+            <div>SYSTEM STATUS: Operational (Anima Engine)</div>
+            <div>Multi-Tenant Enterprise Mode</div>
+        </footer>
+
+    </div>
+</div>
+
+<!-- JavaScript Phase 2 Import -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
